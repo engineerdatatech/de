@@ -1,0 +1,47 @@
+CREATE SCHEMA DIM_PII; -- for dimensions that contain pii
+CREATE SCHEMA DIM;
+CREATE SCHEMA FACT;
+
+CREATE TABLE DIM_PII.member (
+	id BIGSERIAL PRIMARY KEY,
+	membership_id VARCHAR ( 106 ) NOT NULL,
+	first_name VARCHAR ( 100 ) NOT NULL,
+	last_name VARCHAR ( 100 ),
+	birthday DATE NOT NULL,
+	start_time TIMESTAMP WITH TIME ZONE NOT NULL,
+	end_time TIMESTAMP WITH TIME ZONE,
+	is_current BOOLEAN NOT NULL
+);
+
+CREATE TABLE DIM.item (
+	id BIGSERIAL PRIMARY KEY,
+	item_id BIGINT NOT NULL,
+	item_name VARCHAR ( 1000 ) NOT NULL,
+	manufacturer_name VARCHAR ( 1000 ),
+	cost MONEY NOT NULL,
+	weight NUMERIC(100,6) NOT NULL,
+	start_time TIMESTAMP WITH TIME ZONE NOT NULL, 
+	end_time TIMESTAMP WITH TIME ZONE,
+	is_current BOOLEAN NOT NULL
+);
+
+CREATE TABLE FACT.transaction (
+	id BIGSERIAL PRIMARY KEY,
+	transaction_id BIGINT NOT NULL,
+	membership_id VARCHAR ( 106 ) NOT NULL,
+	total_items_price MONEY NOT NULL,
+	total_items_weight NUMERIC(100,6) NOT NULL,
+	start_time TIMESTAMP WITH TIME ZONE NOT NULL, 
+	end_time TIMESTAMP WITH TIME ZONE,
+	is_current BOOLEAN NOT NULL
+);
+
+CREATE TABLE DIM.transaction_item (
+	id BIGSERIAL PRIMARY KEY,
+	transaction_id BIGINT NOT NULL,
+	item_id BIGINT NOT NULL,
+	item_count INTEGER NOT NULL,
+	start_time TIMESTAMP WITH TIME ZONE NOT NULL, 
+	end_time TIMESTAMP WITH TIME ZONE,
+	is_current BOOLEAN NOT NULL
+);
