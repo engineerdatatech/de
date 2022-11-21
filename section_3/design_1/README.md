@@ -1,3 +1,7 @@
+Assumptions for all teams:
+- engineers will be owning the tables and data integrity
+- engineers need to set up control to prevent unintended or wrong update by other teams. With this in mind, instead of providing write access to the table, the queries will be encapsulated in a stored procedure. The stored procedures will enable other teams to perform their tasks while at the same time enable engineers to manage the metadata of their write operations.
+
 For logistics team :
 - assumptions :
     - the team wants to track item and transactions details
