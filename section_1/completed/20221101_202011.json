@@ -1,0 +1,16 @@
+[
+    {
+        "full_name"    : "sample_first_name sample_last_name",
+        "birthday"      : "1990-01-01",
+        "email"         : "sample_email@emailprovider.com",
+        "mobile_number" : 81818181,
+        "created_at"    : "2022-11-11T01:01:00Z"
+    },
+    {
+        "full_name"    : "sample_first_name",
+        "birthday"      : "1990-01-01",
+        "email"         : "sample_email@emailprovider.com",
+        "mobile_number" : 818181,
+        "created_at"    : "2022-11-11T01:01:00Z"
+    }
+]
