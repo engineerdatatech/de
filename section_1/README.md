@@ -35,3 +35,6 @@ To test the flow :
 - run the script (python main.py)
 - The files will be moved into completed folder
 - There will be output file in success, failure, completed, and log
+
+The cron job will be as follow (every hour starting from 20th minute to ensure that previous hour's files have been loaded) :
+20 */1 0 0 0 python main.py
